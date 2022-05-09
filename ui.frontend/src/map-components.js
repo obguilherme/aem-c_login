@@ -7,6 +7,8 @@ import Image from './components/Image/Image'
 import FormLogin from './components/FormLogin/FormLogin'
 import Home from './components/Home/Home'
 import Clock from './components/Clock/Clock'
+import Weather from './components/Weather/Weather'
+import SessionTime from './components/SessionTime/SessionTime'
 import {
   withComponentMappingContext,
   AllowedComponentsContainer,
@@ -26,6 +28,9 @@ const EditConfig = {
 /** *******************************************************************
               ↓  NEW COMPONENTS MAPPING COME HERE  ↓
 **********************************************************************/
+MapTo('vue/components/sessiontime')(SessionTime, EditConfig)
+
+MapTo('vue/components/weather')(Weather, EditConfig)
 
 MapTo('vue/components/clock')(Clock, EditConfig)
 

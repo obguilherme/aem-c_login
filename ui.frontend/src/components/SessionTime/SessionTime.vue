@@ -2,28 +2,37 @@
   <header>
     <h1>SESSION TIME</h1>
     <br>
+    <h2>{{timerCount}}</h2>
   </header>
 </template>
 
 <script>
 // Imports
 /* eslint-disable */
-const WORDS = {
-  SPACE: ' ',
-  DE: 'de',
-  DOTS: ':'
-}
-const DATE = new Date()
 
 export default {
   name: 'SessionTime',
   props: {
   },
-  methods: {
-  },
-  data () {
+  data() {
     return {
+      timerCount: 30
     }
+  },
+  watch: {
+    timerCount: {
+      handler(value) {
+
+          if (value > 0) {
+              setTimeout(() => {
+                  this.timerCount--;
+              }, 1000);
+          }
+
+      },
+      immediate: true // This ensures the watcher is triggered upon creation
+    }
+
   }
 }
 </script>

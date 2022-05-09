@@ -3,13 +3,11 @@
     <h1>{{clockTime}}</h1>
     <br>
     <h2>{{clockDate}}</h2>
-    <br><h2>{{timer}}</h2>
   </header>
 </template>
 
 <script>
 // Imports
-/* eslint-disable */
 const DATE = new Date()
 const WORDS = {
   SPACE: ' ',
@@ -19,13 +17,9 @@ const WORDS = {
 
 export default {
   name: 'Clock',
-  props: {
-  },
-  created () {
-  },
   methods: {
     getTimeNow () {
-      return ( (DATE.getHours() + WORDS.DOTS + (DATE.getUTCMinutes() < 10 ? '0':'') + DATE.getUTCMinutes() ))
+      return (DATE.getHours() + WORDS.DOTS + (DATE.getUTCMinutes() < 10 ? '0' : '') + DATE.getUTCMinutes())
     },
     getCompleteDay () {
       this.months = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro']
@@ -34,12 +28,12 @@ export default {
         DATE.getDate() + WORDS.SPACE_DE +
         this.months[DATE.getMonth()] + WORDS.SPACE_DE +
         DATE.getFullYear()
-    },
+    }
   },
   data () {
     return {
       clockTime: this.getTimeNow(),
-      clockDate: this.getCompleteDay(),
+      clockDate: this.getCompleteDay()
     }
   }
 }
